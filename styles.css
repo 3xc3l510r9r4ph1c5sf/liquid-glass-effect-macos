@@ -47,6 +47,11 @@
   z-index: 3;
   font-size: 2rem;
   color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 /* POSTER LAYOUT STYLES */
@@ -82,19 +87,6 @@
   position: absolute;
   pointer-events: none;
   z-index: 10;
-}
-
-/* Poster Section Styles */
-.poster-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
-}
-
-.poster-section:hover {
-  transform: scale(1.02);
-  z-index: 5;
 }
 
 /* Color-specific tints */
@@ -158,6 +150,10 @@
   font-size: 4.25cqi;
   height: 6cqi;
   place-content: center;
+}
+
+.h-text .liquidGlass-text {
+  font-size: 4.25cqi;
   font-weight: bold;
 }
 
@@ -169,12 +165,25 @@
   place-content: center;
   rotate: 180deg;
   writing-mode: vertical-rl;
+}
+
+.v-text .liquidGlass-text {
+  font-size: 5cqb;
+  letter-spacing: .25cqb;
+  rotate: 180deg;
+  writing-mode: vertical-rl;
   font-weight: bold;
 }
 
-.nowrap {
+.nowrap .liquidGlass-text {
   letter-spacing: -0.2cqi;
   white-space: nowrap;
+}
+
+/* Hover effects for poster sections */
+.poster .liquidGlass-wrapper:hover {
+  transform: scale(1.02);
+  z-index: 5;
 }
 
 /* Font */
@@ -326,7 +335,7 @@ a {
   
   .poster {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, auto);
+    grid-template-rows: repeat(9, auto);
   }
   
   .white.first {
@@ -335,6 +344,12 @@ a {
   }
   
   .v-text {
+    rotate: 0deg;
+    writing-mode: horizontal-tb;
+    font-size: 4cqi;
+  }
+  
+  .v-text .liquidGlass-text {
     rotate: 0deg;
     writing-mode: horizontal-tb;
     font-size: 4cqi;
