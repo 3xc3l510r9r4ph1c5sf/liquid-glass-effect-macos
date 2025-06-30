@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>macOS Liquid Glass Effect</title>
+    <title>Liquid Glass Poster Layout</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <!-- Original liquid glass components -->
+    <div class="original-wrapper">
       <div class="liquidGlass-wrapper menu">
         <div class="liquidGlass-effect"></div>
         <div class="liquidGlass-tint"></div>
@@ -34,23 +35,23 @@
               />
               <img
                 src="https://raw.githubusercontent.com/lucasromerodb/liquid-glass-effect-macos/refs/heads/main/assets/map.png"
-                alt="Finder"
+                alt="Map"
               />
               <img
                 src="https://raw.githubusercontent.com/lucasromerodb/liquid-glass-effect-macos/refs/heads/main/assets/messages.png"
-                alt="Finder"
+                alt="Messages"
               />
               <img
                 src="https://raw.githubusercontent.com/lucasromerodb/liquid-glass-effect-macos/refs/heads/main/assets/notes.png"
-                alt="Finder"
+                alt="Notes"
               />
               <img
                 src="https://raw.githubusercontent.com/lucasromerodb/liquid-glass-effect-macos/refs/heads/main/assets/safari.png"
-                alt="Finder"
+                alt="Safari"
               />
               <img
                 src="https://raw.githubusercontent.com/lucasromerodb/liquid-glass-effect-macos/refs/heads/main/assets/books.png"
-                alt="Finder"
+                alt="Books"
               />
             </div>
           </div>
@@ -79,6 +80,73 @@
       </a>
     </div>
 
+    <!-- New Poster Layout with Liquid Glass Effect -->
+    <div class="poster-container">
+      <div class="frame">
+        <div class="poster">
+          <!-- Black section with vertical text -->
+          <div class="liquidGlass-wrapper poster-section black">
+            <div class="liquidGlass-effect"></div>
+            <div class="liquidGlass-tint black-tint"></div>
+            <div class="liquidGlass-shine"></div>
+            <div class="liquidGlass-text">
+              <div class="v-text">LIQUID</div>
+            </div>
+          </div>
+
+          <!-- Blue section -->
+          <div class="liquidGlass-wrapper poster-section blue">
+            <div class="liquidGlass-effect"></div>
+            <div class="liquidGlass-tint blue-tint"></div>
+            <div class="liquidGlass-shine"></div>
+            <div class="liquidGlass-text">
+              <div class="h-text">GLASS</div>
+            </div>
+          </div>
+
+          <!-- White section (first) -->
+          <div class="liquidGlass-wrapper poster-section white first">
+            <div class="liquidGlass-effect"></div>
+            <div class="liquidGlass-tint white-tint"></div>
+            <div class="liquidGlass-shine"></div>
+            <div class="liquidGlass-text">
+              <div class="h-text nowrap">DESIGN</div>
+            </div>
+          </div>
+
+          <!-- Red section -->
+          <div class="liquidGlass-wrapper poster-section red">
+            <div class="liquidGlass-effect"></div>
+            <div class="liquidGlass-tint red-tint"></div>
+            <div class="liquidGlass-shine"></div>
+            <div class="liquidGlass-text">
+              <div class="h-text">MODERN</div>
+            </div>
+          </div>
+
+          <!-- Yellow section -->
+          <div class="liquidGlass-wrapper poster-section yellow">
+            <div class="liquidGlass-effect"></div>
+            <div class="liquidGlass-tint yellow-tint"></div>
+            <div class="liquidGlass-shine"></div>
+            <div class="liquidGlass-text">
+              <div class="h-text">FLUID</div>
+            </div>
+          </div>
+
+          <!-- White section (last) -->
+          <div class="liquidGlass-wrapper poster-section white last">
+            <div class="liquidGlass-effect"></div>
+            <div class="liquidGlass-tint white-tint"></div>
+            <div class="liquidGlass-shine"></div>
+            <div class="liquidGlass-text">
+              <div class="h-text">2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <svg style="display: none">
       <filter
         id="glass-distortion"
@@ -95,7 +163,6 @@
           seed="5"
           result="turbulence"
         />
-        <!-- Seeds: 14, 17,  -->
 
         <feComponentTransfer in="turbulence" result="mapped">
           <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />

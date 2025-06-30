@@ -49,49 +49,170 @@
   color: black;
 }
 
-/* OTHER STYLES */
+/* POSTER LAYOUT STYLES */
+
+.poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.frame {
+  border: 2cqi solid black;
+  container-type: inline-size;
+  max-width: 800px;
+  width: 100%;
+}
+
+.poster {
+  display: grid;
+  font-family: 'Mandala-Bold', sans-serif;
+  grid-template-columns: 70cqi 6cqi 24cqi;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.poster::after {
+  box-shadow: inset 0px 0px 5cqi 5cqi rgba(0, 0, 0, 0.15);
+  content: '';
+  display: block;
+  inset: 0;
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Poster Section Styles */
+.poster-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+}
+
+.poster-section:hover {
+  transform: scale(1.02);
+  z-index: 5;
+}
+
+/* Color-specific tints */
+.black-tint {
+  background: rgba(53, 56, 57, 0.3);
+}
+
+.blue-tint {
+  background: rgba(158, 158, 255, 0.3);
+}
+
+.red-tint {
+  background: rgba(255, 167, 158, 0.3);
+}
+
+.white-tint {
+  background: rgba(242, 241, 239, 0.3);
+}
+
+.yellow-tint {
+  background: rgba(232, 232, 158, 0.3);
+}
+
+/* Section backgrounds and dimensions */
+.black {
+  background-color: oklch(0.21 0.04 138.96);
+  color: oklch(0.96 0.01 0);
+  text-align: center;
+}
+
+.blue {
+  aspect-ratio: 140/265;
+  background-color: oklch(0.62 0.12 239.53);
+}
+
+.red {
+  aspect-ratio: 405/450;
+  background-color: oklch(0.66 0.2 36.04);
+}
+
+.white {
+  background-color: oklch(0.95 0.02 99.45);
+}
+
+.white.first {
+  aspect-ratio: 405/395;
+  grid-row: span 3;
+}
+
+.white.last {
+  aspect-ratio: 140/100;
+}
+
+.yellow {
+  background-color: oklch(0.91 0.19 105.08);
+}
+
+/* Text Styles */
+.h-text {
+  display: grid;
+  font-size: 4.25cqi;
+  height: 6cqi;
+  place-content: center;
+  font-weight: bold;
+}
+
+.v-text {
+  display: grid;
+  font-size: 5cqb;
+  grid-row: span 5;
+  letter-spacing: .25cqb;
+  place-content: center;
+  rotate: 180deg;
+  writing-mode: vertical-rl;
+  font-weight: bold;
+}
+
+.nowrap {
+  letter-spacing: -0.2cqi;
+  white-space: nowrap;
+}
+
+/* Font */
+@font-face {
+  font-family: 'Mandala-Bold';
+  src: url('https://assets.stoumann.dk/fonts/Mandala-Bold.ttf.woff') format('woff'),
+       url('https://assets.stoumann.dk/fonts/Mandala-Bold.ttf.svg#Mandala-Bold') format('svg'),
+       url('https://assets.stoumann.dk/fonts/Mandala-Bold.ttf.eot'),
+       url('https://assets.stoumann.dk/fonts/Mandala-Bold.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ORIGINAL COMPONENT STYLES */
 
 body {
   padding: 0;
   margin: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   background: url("https://www.publicdomainpictures.net/pictures/610000/velka/seamless-floral-wallpaper-art-1715193626Gct.jpg")
     center center;
   background-size: 500px;
   font-family: sans-serif;
   font-weight: 300;
+  gap: 3rem;
 
   animation: moveBackground 60s linear infinite;
 }
-
-/*
-GREEN BACKGROUND
-https://media.istockphoto.com/id/1430511443/vector/christmas-mistletoe-foliage-and-berries-vector-seamless-pattern.jpg?s=612x612&w=0&k=20&c=oqxlH7ytgd5yjBQroACirJ1gH7Au1tq8gmsdeGd-Crk=
-
-ORANGE BACKGROUND
-https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/beautiful-orange-and-pastel-flowers-seamless-pattern-julien.jpg
-
-MARGARITAS BACKGROUND
-https://static.vecteezy.com/system/resources/previews/056/652/082/non_2x/hand-drawn-white-flower-seamless-pattern-floral-repeating-wallpaper-for-textile-design-fabric-print-wrapping-paper-cute-daisy-flowers-on-blue-background-repeated-ditsy-texture-vector.jpg
-
-SPRING FLOWERS BACKGROUND
-https://img.freepik.com/free-vector/flat-floral-spring-pattern-design_23-2150117078.jpg
-
-VECTOR WINDS BACKGROUND
-https://i.ibb.co/MDbLn4N4/vectors.png
-
-RED FLOWERS BACKGROUND
-https://www.publicdomainpictures.net/pictures/610000/velka/seamless-floral-wallpaper-art-1715193626Gct.jpg
-*/
 
 a {
   text-decoration: none;
 }
 
-.wrapper {
+.original-wrapper {
   display: flex;
   gap: 25px;
   flex-direction: column;
@@ -190,5 +311,45 @@ a {
   }
   to {
     background-position: 0% -1500%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .poster-container {
+    padding: 1rem;
+  }
+  
+  .frame {
+    border-width: 1cqi;
+  }
+  
+  .poster {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, auto);
+  }
+  
+  .white.first {
+    grid-row: span 1;
+    aspect-ratio: auto;
+  }
+  
+  .v-text {
+    rotate: 0deg;
+    writing-mode: horizontal-tb;
+    font-size: 4cqi;
+  }
+  
+  body {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .original-wrapper {
+    order: 2;
+  }
+  
+  .poster-container {
+    order: 1;
   }
 }
